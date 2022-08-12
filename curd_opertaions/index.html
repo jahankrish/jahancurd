@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="./app.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container1 mt-4">
+
+      <div class="text-center">
+        <h1 class="text-primary">Student Details</h1>
+      </div>
+
+      <form class="align-items-center ml-4"  action="#" method="post">
+
+        <div class="mb-3" style="width: 400px; margin-left: 50px;">
+          <label for="name" class="form-label text-primary fw-bold">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Enter a Name"
+            
+          />
+        </div>
+        <div class="mb-3" style="width: 400px;margin-left: 50px;">
+          <label for="dateOfBirth" class="form-label text-primary fw-bold">Date Of Birth</label>
+          <input
+            type="date"
+            class="form-control"
+            id="dateOfBirth"
+          />
+        </div>
+        <div class="mb-3" style="width: 400px;margin-left: 50px;">
+          <label for="gender" class="form-label text-primary fw-bold">Gender</label>
+          <select class="form-select" id="gender" aria-label="Default select example">
+            <option selected>Choose a Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-primary ml-4"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+     
+    >
+      Add
+    </button>
+
+    <!-- AddModal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-primary" id="exampleModalLabel">Add Qualification</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <!-- form start -->
+          <form>
+           
+            <div class="mb-3" style="width: 400px;margin-left: 50px;">
+              <label for="qualification" class="form-label text-primary"
+                >Qualification</label
+              >
+              <select class="form-select" id="qualification" aria-label="Default select example">
+                <option selected>Choose a  Qualification</option>
+                <option value="10th">10th</option>
+                <option value="+2">+2</option>
+                <option value="UG">UG</option>
+                <option value="PG">PG</option>
+                <option value="PHD">PHD</option>
+              </select>
+            </div>
+            <div class="mb-3" style="width: 400px;margin-left: 50px;">
+              <label for="Institution" class="form-label text-primary">Institution</label>
+              <input
+                type="text"
+                class="form-control"
+                id="institution"
+              />
+            </div>
+            <div class="mb-3" style="width: 400px;margin-left: 50px;">
+              <label for="yearOfPassing" class="form-label text-primary"
+                >Year Of Passing</label
+              >
+              <input
+                type="date"
+                class="form-control"
+                id="yearOfPassing"
+              />
+            </div>
+            <div class="mb-3" style="width: 400px;margin-left: 50px;">
+              <label for="percentage" class="form-label text-primary">Percentage</label>
+              <input
+                type="number"
+                class="form-control"
+                id="percentage"
+              />
+            </div>
+          </form>
+          <!-- form End -->
+          <div class="modal-footer">
+            <!-- <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button> -->
+            <button type="button" class="btn btn-primary" onclick="onFormSubmit('ADD')">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+<!-- Edit Model -->
+
+<div
+class="modal fade"
+id="editModal"
+tabindex="-1"
+aria-labelledby="exampleModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title text-primary" id="exampleModalLabel">Update Qualification</h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <!-- form start -->
+    <form>
+          
+      <div class="mb-3" style="width: 400px;margin-left: 50px;">
+        <label for="qualification" class="form-label text-primary"
+          >Qualification</label
+        >
+        <select class="form-select" id="edit_qualification" aria-label="Default select example">
+          <option selected>Choose a  Qualification</option>
+          <option value="10th">10th</option>
+          <option value="+2">+2</option>
+          <option value="UG">UG</option>
+          <option value="PG">PG</option>
+          <option value="PHD">PHD</option>
+        </select>
+      </div>
+      <div class="mb-3" style="width: 400px;margin-left: 50px;">
+        <label for="Institution" class="form-label text-primar">Institution</label>
+        <input
+          type="text"
+          class="form-control"
+          id="edit_institution"
+        />
+      </div>
+      <div class="mb-3" style="width: 400px;margin-left: 50px;">
+        <label for="yearOfPassing" class="form-label text-primary"
+          >YearOfPassing</label
+        >
+        <input
+          type="date"
+          class="form-control"
+          id="edit_yearOfPassing"
+        />
+      </div>
+      <div class="mb-3" style="width: 400px;margin-left: 50px;">
+        <label for="percentage" class="form-label text-primary">Percentage</label>
+        <input
+          type="number"
+          class="form-control"
+          id="edit_percentage"
+        />
+      </div>
+    </form>
+    
+    <!-- form End -->
+    <div class="modal-footer">
+      <!-- <button
+        type="button"
+        class="btn btn-secondary"
+        data-bs-dismiss="modal"
+      >
+        Close
+      </button> -->
+      <button type="button" class="btn btn-primary" onclick="onFormSubmit('UPDATE')">Update</button>
+    </div>
+  </div>
+</div>
+</div> 
+  </form>
+</div>
+
+
+    <div class="container2 mt-4">
+        <table class="table table-bordered table-hover" id="studentList"> 
+            <thead>
+              <tr>
+                <th>Qualification</th>
+                <th>Institution</th>
+                <th>YearOfPassing</th>
+                <th>Percentage</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id='education_details_table'>
+
+            </tbody>
+          </table>
+        </div>
+  </body>
+</html>
